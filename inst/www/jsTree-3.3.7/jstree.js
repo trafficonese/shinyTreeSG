@@ -162,7 +162,7 @@
 			dir				: false,
 			dots			: true,
 			icons			: true,
-			ellipsis		: false,
+			ellipsis		: true,
 			stripes			: true,
 			variant			: false,
 			responsive		: true
@@ -172,7 +172,7 @@
 		force_text : false,
 		dblclick_toggle : true,
 		loaded_state : false,
-		restore_focus : true,
+		restore_focus : false,
 		keyboard : {
 			'ctrl-space': function (e) {
 				// aria defines space only with Ctrl
@@ -5420,7 +5420,7 @@
 		 * @name $.jstree.defaults.dnd.copy
 		 * @plugin dnd
 		 */
-		copy : true,
+		copy : false,
 		/**
 		 * a number indicating how long a node should remain hovered while dragging to be opened. Defaults to `500`.
 		 * @name $.jstree.defaults.dnd.open_timeout
@@ -5456,7 +5456,7 @@
 		 * @name $.jstree.defaults.dnd.drag_selection
 		 * @plugin dnd
 		 */
-		drag_selection : true,
+		drag_selection : false,
 		/**
 		 * controls whether dnd works on touch devices. If left as boolean true dnd will work the same as in desktop browsers, which in some cases may impair scrolling. If set to boolean false dnd will not work on touch devices. There is a special third option - string "selected" which means only selected nodes can be dragged on touch devices.
 		 * @name $.jstree.defaults.dnd.touch

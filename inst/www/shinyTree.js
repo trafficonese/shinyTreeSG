@@ -43,13 +43,19 @@ var shinyTree = function(){
         plugins.push('wholerow');
       }
       
-      var tree = $(el).jstree({'core' : {
-        "check_callback" : ($elem.data('st-dnd') === 'TRUE'), 
-        'themes': {'name': $elem.data('st-theme'), 'responsive': true, 'icons': ($elem.data('st-theme-icons') === 'TRUE'), 'dots': ($elem.data('st-theme-dots') === 'TRUE') },
-        "state" : { "key" : "jstree" },
+      var tree = $(el).jstree({
+        'core' : {
+          "check_callback" : ($elem.data('st-dnd') === 'TRUE'), 
+          'themes': {
+            'name': $elem.data('st-theme'), 
+            'responsive': false, 
+            'icons': ($elem.data('st-theme-icons') === 'TRUE'), 
+            'dots': ($elem.data('st-theme-dots') === 'TRUE') 
           },
-          "types" : sttypes,
-          plugins: plugins});
+          "state" : { "key" : "jstree" },
+          },
+        "types" : sttypes,
+        plugins: plugins});
     }
   });
   Shiny.outputBindings.register(treeOutput, 'shinyTree.treeOutput');
@@ -89,11 +95,9 @@ var shinyTree = function(){
           
           $.each(obj, function(key, val){
             if (keys.indexOf(key) >= 0) {
-              //console.log(key + ": " + val)
-              
+
               if (key === 'li_attr') { // We don't really want, just the stid and class attr
                 if (val.stid){
-                  //console.log("stid (li_attr): " + val.stid)
                   if (typeof val.stid === 'string'){
                     // TODO: We don't really want to trim but have to b/c of Shiny's pretty-printing
                     clean["stid"] = val.stid.trim();
@@ -103,7 +107,6 @@ var shinyTree = function(){
                 }
                 
                 if (val.class) {
-                  //console.log("stclass (li_attr): " + val.class)
                   if (typeof val.class === 'string'){
                     // TODO: We don't really want to trim but have to b/c of Shiny's pretty-printing
                     clean["stclass"] = val.class.trim();
@@ -111,17 +114,7 @@ var shinyTree = function(){
                     clean["stclass"] = val.class; 
                   }
                 }
-                
-                //if (!val.class){
-                //  console.log(key + ": " + val)
-                //  // Skip without adding element.
-                //  return;
-                //}
-                
-                //if (val.class){
-                //  val = val.class;
-                //  key = 'class';
-                //}
+
               } else {
               
                 if (typeof val === 'string'){

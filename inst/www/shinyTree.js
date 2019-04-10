@@ -178,7 +178,7 @@ var shinyTree = function(){
       if(message.type == 'updateTree' && typeof message.data !== 'undefined') {
           $(el).jstree(true).settings.core.data = JSON.parse(message.data);
           //$(el).jstree(true).redraw(true);
-          $(el).jstree(true).refresh(true, false);
+          $(el).jstree(true).refresh(true, true);
       }
     }
   });

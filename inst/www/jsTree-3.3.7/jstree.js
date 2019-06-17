@@ -1966,7 +1966,7 @@
 				node.childNodes[1].className = 'jstree-anchor ' + c;
 			}
 			if((obj.icon && obj.icon !== true) || obj.icon === false) {
-				if(obj.icon === false) {
+				if(obj.icon === false || !obj.icon.hasOwnProperty("length")) {
 					node.childNodes[1].childNodes[0].className += ' jstree-themeicon-hidden';
 				}
 				else if(obj.icon.indexOf('/') === -1 && obj.icon.indexOf('.') === -1) {

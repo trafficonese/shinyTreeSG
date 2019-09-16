@@ -218,10 +218,10 @@
 				var o = this.get_next_dom(e.currentTarget);
 				if(o && o.length) { o.children('.jstree-anchor').focus(); }
 			},
-			'*': function (e) {
+			//'*': function (e) {
 				// aria defines * on numpad as open_all - not very common
-				this.open_all();
-			},
+			//	this.open_all();
+			//},
 			'home': function (e) {
 				// home
 				e.preventDefault();
@@ -2213,7 +2213,11 @@
 				return true;
 			}
 			if(this.is_closed(obj)) {
-				return this.open_node(obj);
+			  if (document.getElementById("openallnodesornot") && document.getElementById("openallnodesornot").checked) {
+				  return this.open_all(obj);
+			  } else {
+				  return this.open_node(obj);
+			  }
 			}
 			if(this.is_open(obj)) {
 				return this.close_node(obj);
